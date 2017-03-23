@@ -1,0 +1,294 @@
+/*!
+Theme Name: Modus
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: modus
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Modus is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";
+/*--------------------------------------------------------------
+# Custom Style
+--------------------------------------------------------------*/
+body {
+	background: #f3f3f3;
+}
+.navbar {
+	background:  url(../img/nav-bg.png) repeat-x;
+}
+
+.search {
+    padding: 5px 0;
+    width: 53px;
+    min-height: 30px;
+    border-color: transparent;
+    position: relative;
+    left: 0;
+    float: left;
+    line-height: 22px;
+}
+
+.search input {
+    position: absolute;
+    width: 0px;
+    float: right;
+    top: 10px;
+    right: 25px;
+    margin-left: 220px;
+    transition: all 0.7s ease-in-out;
+    min-height: 30px;
+    line-height: 18px;
+    padding: 0 2px 0 2px;
+    border-radius: 1px;
+    z-index: 3;
+}
+
+.search:hover input,
+.search input:focus {
+    width: 200px;
+    margin-left: 20px;
+    padding: 0 2px 0 20px;
+}
+
+.btn {
+    min-height: 33px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    border: none;
+    border-color: transparent;
+    border-radius: 0;
+    background: #76c7c0;
+    color: #ffffff;
+    z-index: 10;
+}
+.btn-primary {
+	border: none;
+	box-shadow: none;
+	&:hover {
+    	background: #e8645a;
+    	border-bottom: 3px solid #e2534b;
+    	border-radius: 4px;
+    }
+}
+
+.navbar-default {
+	.navbar-brand {
+		display: inline-block;
+		color: #fff;
+		font: 700 30px "Open Sans";
+		line-height: 36px;
+		text-transform: uppercase;
+		vertical-align: inherit;
+		margin: 0.2em 0 0.8em;
+}
+	.navbar-nav {
+		li {
+			a {
+				color: #fff;
+				font: 600 13px "Open Sans";
+				line-height: 16px;
+				text-transform: uppercase;
+				border-radius: 4px;
+				padding: 0.5em 1em;
+				margin: 0.8em 0.5em;
+				&:hover {
+					background-image: linear-gradient(to bottom,#e8645a 0,#e8645a 100%);
+					color: #fff;
+					border-bottom: 3px solid #e2534b; 
+				}
+				&:focus {
+					background-image: linear-gradient(to bottom,#e8645a 0,#e8645a 100%);
+					color: #fff;
+					border-bottom: 3px solid #e2534b;
+				}
+			}
+		}
+		.open {
+			a {
+				background-image: linear-gradient(to bottom,#62a29e 0,#62a29e 100%);
+				border-radius: 4px;
+				padding: 0.5em 1em;
+			}
+		}
+		.active {
+			a{
+				background-image: linear-gradient(to bottom,#62a29e 0,#62a29e 100%);
+				color: #fff;
+				border-bottom: 3px solid #528b86;
+				&:focus {
+					background-image: linear-gradient(to bottom,#62a29e 0,#62a29e 100%);
+					border-bottom: 3px solid #528b86;
+
+				}
+				&:hover {
+					background-image: linear-gradient(to bottom,#62a29e 0,#62a29e 100%);
+					border-bottom: 3px solid #528b86;	
+					color: #fff;				
+				}
+			}
+		}
+	}
+}
+
+
+.navbar-collapse {
+	padding-top: 15px;
+	float: right;
+}
+.navbar{
+    border-radius: 0px;
+}
+
+@media screen and (min-width: 281px) and (max-width: 767px){
+.navbar-collapse {
+	padding-top: 15px;
+	float: none;
+	background: #528b86;
+}
+.navbar-toggle {
+	margin-top: 20px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.site-footer {
+	background-color: #76c7c0;
+}
+@media screen and (max-width:1169px) and (min-width:768px) { 
+	
+}
+
+@media screen and (max-width:1169px) and (min-width:993px) { 
+
+}
+
+@media screen and (max-width: 993px) and (min-width:768px){
+.navbar-default {
+	.navbar-nav {
+		li {
+			a {
+				margin: 0.8em 0.2em;
+				padding: 0.5em 0.1em;
+			}
+		}
+	}
+}
+.navbar-collapse {
+	float: right;
+}
+}
