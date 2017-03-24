@@ -111,7 +111,7 @@ body {
 	background: #f3f3f3;
 }
 .navbar {
-	background:  url(../img/nav-bg.png) repeat-x;
+	background:  url(./img/nav-bg.png) repeat-x;
 }
 
 .search {
@@ -175,7 +175,6 @@ body {
 		color: #fff;
 		font: 700 30px "Open Sans";
 		line-height: 36px;
-		text-transform: uppercase;
 		vertical-align: inherit;
 		margin: 0.2em 0 0.8em;
 }
@@ -188,7 +187,7 @@ body {
 				text-transform: uppercase;
 				border-radius: 4px;
 				padding: 0.5em 1em;
-				margin: 0.8em 0.5em;
+				margin: 0.8em 0.4em;
 				&:hover {
 					background-image: linear-gradient(to bottom,#e8645a 0,#e8645a 100%);
 					color: #fff;
@@ -249,25 +248,9 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .site-footer {
-	background-color: #76c7c0;
+    background: url("./img/footer-bg.png") repeat-x top #76c7c0;
+	padding: 2em 0;
 }
 @media screen and (max-width:1169px) and (min-width:768px) { 
 	

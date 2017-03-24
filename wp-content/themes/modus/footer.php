@@ -11,15 +11,27 @@
 
 ?>
 
-	</div><!-- #content -->
+</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'modus' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'modus' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'modus' ), 'modus', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"><?php if (!dynamic_sidebar('footer-1')) : ?>
+                <?php endif; // end footer widget area ?>
+            </div>
+            <div class="col-sm-2"><?php if (!dynamic_sidebar('footer-2')) : ?>
+                <?php endif; // end footer widget area ?>
+            </div>
+            <div class="col-sm-2"><?php if (!dynamic_sidebar('footer-3')) : ?>
+                <?php endif; // end footer widget area ?>
+            </div>
+            <div class="col-sm-4"><?php if (!dynamic_sidebar('footer-4')) : ?>
+                <?php endif; // end footer widget area ?>
+            </div>
+        </div>
+    </div><!--end .container-->
+
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

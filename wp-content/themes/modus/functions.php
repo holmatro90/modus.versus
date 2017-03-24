@@ -46,6 +46,9 @@ function modus_setup() {
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'modus' ),
 	) );
+    register_nav_menus( array(
+        'footer' => __( 'Footer Menu', 'modus' ),
+    ) );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -98,6 +101,44 @@ function modus_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 1', 'modus' ),
+        'description'   => __( 'Appears on footer', 'modus' ),
+        'id'            => 'footer-1',
+        'before_widget' => '<aside id="%1$s" class="cols-4 widget-column-1 %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 2', 'modus' ),
+        'description'   => __( 'Appears on footer', 'modus' ),
+        'id'            => 'footer-2',
+        'before_widget' => '<aside id="%1$s" class="cols-2 widget-column-2 %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h5 class="footer-nav">',
+        'after_title'   => '</h5>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 3', 'modus' ),
+        'description'   => __( 'Appears on footer', 'modus' ),
+        'id'            => 'footer-3',
+        'before_widget' => '<aside id="%1$s" class="cols-2 widget-column-3 %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h5 class="footer-nav">',
+        'after_title'   => '</h5>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 4', 'modus' ),
+        'description'   => __( 'Appears on footer', 'modus' ),
+        'id'            => 'footer-4',
+        'before_widget' => '<aside id="%1$s" class="cols-4 widget-column-4 %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>',
+    ) );
 }
 add_action( 'widgets_init', 'modus_widgets_init' );
 
