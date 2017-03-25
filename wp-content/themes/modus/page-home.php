@@ -6,6 +6,7 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
             <div class="container">
                 <div class="row">
+                    <?php get_template_part('inc/slider'); ?>
                     <section class="services">
                         <div class="top-ser">
 

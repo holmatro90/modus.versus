@@ -44,11 +44,8 @@ function modus_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'modus' ),
+		'menu' => esc_html__( 'Primary', 'modus' ),
 	) );
-    register_nav_menus( array(
-        'footer' => __( 'Footer Menu', 'modus' ),
-    ) );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -141,6 +138,11 @@ function modus_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'modus_widgets_init' );
+
+
+
+
+
 
 /**
  * Enqueue scripts and styles.
