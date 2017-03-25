@@ -99,6 +99,15 @@ function modus_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
     register_sidebar( array(
+        'name'          => __( 'Text Widget 1', 'modus' ),
+        'description'   => __( 'Appears on section', 'modus' ),
+        'id'            => 'main-1',
+        'before_widget' => '<div id="%1$s" class="text-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
         'name'          => __( 'Footer Widget 1', 'modus' ),
         'description'   => __( 'Appears on footer', 'modus' ),
         'id'            => 'footer-1',

@@ -4,13 +4,13 @@ get_header(); ?>
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
+            <?php get_template_part('inc/slider'); ?>
             <div class="container">
                 <div class="row">
-                    <?php get_template_part('inc/slider'); ?>
-                    <section class="services">
-                        <div class="top-ser">
 
-                        </div>
+                    <section class="services">
+                        <?php if (!dynamic_sidebar('main-1')) : ?>
+                        <?php endif; // end widget area ?>
                         <ul class="row">
                             <?php
                             $args = array(
