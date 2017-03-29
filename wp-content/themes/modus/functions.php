@@ -108,6 +108,15 @@ function modus_widgets_init() {
         'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
+        'name'          => __( 'Text Widget 2', 'modus' ),
+        'description'   => __( 'Appears on section', 'modus' ),
+        'id'            => 'main-2',
+        'before_widget' => '<div id="%1$s" class="text-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
         'name'          => __( 'Footer Widget 1', 'modus' ),
         'description'   => __( 'Appears on footer', 'modus' ),
         'id'            => 'footer-1',
@@ -150,18 +159,84 @@ add_action( 'widgets_init', 'modus_widgets_init' );
 
 
 
+function ct_modus_social_array() {
 
+    $social_sites = array(
+        'twitter'       => 'modus_twitter_profile',
+        'facebook'      => 'modus_facebook_profile',
+        'google-plus'   => 'modus_googleplus_profile',
+        'pinterest'     => 'modus_pinterest_profile',
+        'linkedin'      => 'modus_linkedin_profile',
+        'youtube'       => 'modus_youtube_profile',
+        'vimeo'         => 'modus_vimeo_profile',
+        'tumblr'        => 'modus_tumblr_profile',
+        'instagram'     => 'modus_instagram_profile',
+        'flickr'        => 'modus_flickr_profile',
+        'dribbble'      => 'modus_dribbble_profile',
+        'rss'           => 'modus_rss_profile',
+        'reddit'        => 'modus_reddit_profile',
+        'soundcloud'    => 'modus_soundcloud_profile',
+        'spotify'       => 'modus_spotify_profile',
+        'vine'          => 'modus_vine_profile',
+        'yahoo'         => 'modus_yahoo_profile',
+        'behance'       => 'modus_behance_profile',
+        'codepen'       => 'modus_codepen_profile',
+        'delicious'     => 'modus_delicious_profile',
+        'stumbleupon'   => 'modus_stumbleupon_profile',
+        'deviantart'    => 'modus_deviantart_profile',
+        'digg'          => 'modus_digg_profile',
+        'github'        => 'modus_github_profile',
+        'hacker-news'   => 'modus_hacker-news_profile',
+        'steam'         => 'modus_steam_profile',
+        'vk'            => 'modus_vk_profile',
+        'weibo'         => 'modus_weibo_profile',
+        'tencent-weibo' => 'modus_tencent_weibo_profile',
+        '500px'         => 'modus_500px_profile',
+        'foursquare'    => 'modus_foursquare_profile',
+        'slack'         => 'modus_slack_profile',
+        'slideshare'    => 'modus_slideshare_profile',
+        'qq'            => 'modus_qq_profile',
+        'whatsapp'      => 'modus_whatsapp_profile',
+        'skype'         => 'modus_skype_profile',
+        'wechat'        => 'modus_wechat_profile',
+        'xing'          => 'modus_xing_profile',
+        'paypal'        => 'modus_paypal_profile',
+        'email-form'    => 'modus_email_form_profile'
+    );
 
+    return apply_filters( 'ct_modus_social_array_filter', $social_sites );
+}
+
+function ct_modus_social_icons_output() {
+
+    $social_sites = ct_modus_social_array();
+
+    foreach ( $social_sites as $social_site => $profile ) {
+
+        if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
+            $active_sites[ $social_site ] = $social_site;
+        }
+    }
+
+    if ( ! empty( $active_sites ) ) {
+
+        echo '<ul class="social-media-icons">';
+        foreach ( $active_sites as $key => $active_site ) {
+            $class = 'fa fa-2x fa-' . $active_site; ?>
+            <li>
+                <a class="<?php echo esc_attr( $active_site ); ?>" target="_blank" href="<?php echo esc_url( get_theme_mod( $key ) ); ?>">
+                    <i class="<?php echo esc_attr( $class );  ?>" title="<?php echo esc_attr( $active_site ); ?>" aria-hidden="true"></i>
+                </a>
+            </li>
+        <?php }
+        echo "</ul>";
+    }
+}
 
 /**
  * Enqueue scripts and styles.
  */
 function modus_scripts() {
-		
-	wp_enqueue_style( 'fontawesome' );
-
-	wp_register_style( 'fontawesome', get_template_directory_uri() .
-	 '/libs/font-awesome/css/font-awesome.min.css');
 
 	wp_enqueue_style( 'modus-style', get_stylesheet_uri() );
 
@@ -169,11 +244,17 @@ function modus_scripts() {
 
 	wp_enqueue_script( 'modus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+    wp_enqueue_script('progressbar', get_template_directory_uri() . '/js/progressbar.js', array(), '010117', true);
+
+	wp_enqueue_script('progress', get_template_directory_uri() . '/js/progres-bar.js', array(), '010117', true);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'modus_scripts' );
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -209,77 +290,3 @@ require get_template_directory() . '/inc/jetpack.php';
 require_once('wp-bootstrap-navwalker.php');
 
 
-add_action('init', 'register_post_types');
-function register_post_types(){
-	register_post_type('services', array(
-		'labels' => array(
-			'name' => __( 'Services' ),
-        'singular_name' => __( 'Service' ),
-			'add_new'            => 'Add new services', // для добавления новой записи
-			'add_new_item'       => 'Add new service', // заголовка у вновь создаваемой записи в админ-панели.
-			'edit_item'          => 'Edit service', // для редактирования типа записи
-			'new_item'           => 'New service', // текст новой записи
-			'view_item'          => '', // для просмотра записи этого типа.
-			
-		),
-		'description'         => '',
-		'public'              => true,
-		'publicly_queryable'  => true,
-		'exclude_from_search' => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true, // показывать ли в меню адмнки
-		'show_in_admin_bar'   => true, // по умолчанию значение show_in_menu
-		'show_in_nav_menus'   => null,
-		'show_in_rest'        => true, // добавить в REST API. C WP 4.7
-		'rest_base'           => null, // $post_type. C WP 4.7
-		'menu_position'       => null,
-		'menu_icon'           => 'dashicons-groups', 
-		'capability_type'   => 'post',
-		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-		'hierarchical'        => false,
-		'supports'            => array('title','editor','custom-fields'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-		'taxonomies'          => array('services'),
-		'has_archive'         => false,
-		'rewrite'             => true,
-		'query_var'           => true,
-	) );
-}
-
-
-add_action('init', 'create_taxonomy');
-function create_taxonomy(){
-	// заголовки
-	// весь список: http://wp-kama.ru/function/get_taxonomy_labels
-	$labels = array(
-		'name'              => 'Services',
-		'singular_name'     => 'Service',
-		'search_items'      => 'Search Services',
-		'all_items'         => 'All Services',
-		'parent_item'       => 'Parent Service',
-		'parent_item_colon' => 'Parent Service:',
-		'edit_item'         => 'Edit Service',
-		'update_item'       => 'Update Service',
-		'add_new_item'      => 'Add New Service',
-		'new_item_name'     => 'New Service Name',
-		'menu_name'         => 'Service',
-	); 
-	// параметры
-	$args = array(
-		'label'                 => '', // определяется параметром $labels->name
-		'labels'                => $labels,
-		'description'           => '', // описание таксономии
-		'public'                => true,
-		'show_tagcloud'         => falce, // равен аргументу show_ui
-		'hierarchical'          => false,
-		'update_count_callback' => '',
-		'rewrite'               => true,
-		//'query_var'             => $taxonomy, // название параметра запроса
-		'capabilities'          => array(),
-		'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
-		'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
-		'_builtin'              => false,
-		'show_in_quick_edit'    => null, // по умолчанию значение show_ui
-	);
-	register_taxonomy('taxonomy', array('post'), $args );
-}

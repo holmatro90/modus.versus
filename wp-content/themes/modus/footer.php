@@ -28,6 +28,9 @@
             <div class="col-sm-4"><?php if (!dynamic_sidebar('footer-4')) : ?>
                 <?php endif; // end footer widget area ?>
             </div>
+            <div class="social">
+                <?php ct_modus_social_icons_output(); ?>
+            </div>
         </div>
     </div><!--end .container-->
 
@@ -35,6 +38,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<script src="<?php get_template_directory('/js/progres-bar.js'); ?>"></script>
 </body>
 </html>

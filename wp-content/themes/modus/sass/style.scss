@@ -127,7 +127,7 @@ body {
 
 .search input {
     position: absolute;
-    width: 0px;
+    width: 0;
     float: right;
     top: 10px;
     right: 25px;
@@ -233,7 +233,190 @@ body {
 	float: right;
 }
 .navbar{
-    border-radius: 0px;
+    border-radius: 0;
+	border: 1px solid #76c7c0;
+	margin: 0;
+}
+.carousel {
+	.carousel-caption {
+		top: 20%;
+		h3 {
+			display: inline-block;
+			font: 700 50px "Open Sans";
+			text-transform: uppercase;
+			border-radius: 5px;
+			background-color: #e2534b;
+			padding: 0.1em 0.5em;
+		}
+		p {
+			display: inline-block;
+			font: 400 16px "Open Sans";
+			border-radius: 5px;
+			color: #FFFFFF;
+			background-color: #000000;
+			padding: 0.1em 0.5em;
+			opacity: 0.5;
+		}
+	}
+}
+.carousel-control {
+	position: absolute;
+	top: 50%; /* pushes the icon in the middle of the height */
+	z-index: 5;
+	display: inline-block;
+	background-image: none;
+	span {
+		color: #FFFFFF;
+		background: #e96259;
+		padding: 0.2em;
+		border-radius: 6px;
+	}
+}
+.carousel-control.right, .carousel-control.left {
+	background-image: none;
+}
+.carousel-indicators {
+	bottom: -35px;
+	.active {
+		width: 60px;
+		background-color: #e2534b;
+		height: 5px;
+		border-radius: 0;
+		border: none;
+	}
+	li {
+		width: 60px;
+		background-color: #b0b8b9;
+		height: 5px;
+		border-radius: 0;
+		border: none;
+		margin: 0;
+	}
+}
+.services {
+	padding: 2em 0;
+	margin: 1em 0;
+	.text-widget {
+		background-color: #ececec;
+		padding: 1.5em;
+		border-radius: 5px;
+		h3 {
+			color: #7f8c8c;
+			font: 600 30px "Open Sans";
+			line-height: 36px;
+			margin-top: 10px;
+		}
+		.textwidget {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			color: #777777;
+			font: 400 13px "Open Sans";
+			line-height: 21px;
+			a {
+				align-self: baseline;
+				font: 600 20px "Open Sans";
+				text-align: center;
+				color: #FFFFFF;
+				border-radius: 5px;
+				background-color: #e2534b;
+				text-transform: uppercase;
+				padding: 0.2em 1em;
+			}
+		}
+	}
+	.our-service {
+		margin-top: 1em;
+		padding-left: 0;
+		li {
+			display: inline-block;
+			text-align: center;
+			background: #f9f9f9;
+			border-radius: 5px;
+			height: 40vh;
+			padding: 3em 0 0;
+			margin: 3px;
+			position: relative;
+			i {
+				color: #62bdbd;
+			}
+			h3 {
+				color: #7f8c8c;
+				font: 700 16px "Open Sans";
+				text-transform: uppercase;
+			}
+			p {
+				color: #777777;
+				font: 400 13px "Open Sans";
+			}
+			.more {
+				color: #FFFFFF;
+				font: 400 14px "Open Sans";
+				border-radius: 5px;
+				background-color: #62b9b0;
+				padding: 0.5em 1em;
+				position: absolute;
+				bottom: -15px;
+				left: 35%;
+			}
+			&:hover {
+				background: #FFFFFF;
+				i {
+					color: #e2534b;
+				}
+				.more {
+					background: #e2534b ;
+				}
+			}
+		}
+	}
+}
+.why-modus {
+	background: url("./img/why-bg.png") repeat-x top #ececec;
+	width: 100%;
+	padding: 3em;
+	.text-widget {
+		text-align: center;
+		margin: 2em 0;
+		h3 {
+			color: #e1524b;
+			font: 600 40px "Open Sans";
+			line-height: 36px;
+			margin-top: 10px;
+		}
+		.textwidget {
+			color: #777777;
+			font: 400 13px "Open Sans";
+			line-height: 21px;
+		}
+	}
+
+}
+.progres {
+	margin: 10px;
+	height: 45px;
+}
+
+
+.lcs_logo_carousel_slider_title {
+	color: #7f8c8c;
+	font: 700 16px "Open Sans";
+}
+.site-footer {
+	background: url("./img/footer-bg.png") repeat-x top #76c7c0;
+	padding: 2em 0;
+}
+
+.social-media-icons {
+	display: inline-block;
+	li {
+		display: inline-block;
+		a {
+			color: #FFFFFF;
+			line-height: 22px;
+		}
+	}
+
 }
 
 @media screen and (min-width: 281px) and (max-width: 767px){
@@ -246,14 +429,21 @@ body {
 	margin-top: 20px;
 }
 
+
+	.progres {
+		margin: 30px 20px;
+		height: 60px;
+	}
 }
 
-.site-footer {
-    background: url("./img/footer-bg.png") repeat-x top #76c7c0;
-	padding: 2em 0;
-}
-@media screen and (max-width:1169px) and (min-width:768px) { 
-	
+
+@media screen and (max-width:1680px) and (min-width:768px) {
+
+	.our-service {
+		li {
+			width: 24%;
+		}
+	}
 }
 
 @media screen and (max-width:1169px) and (min-width:993px) { 
